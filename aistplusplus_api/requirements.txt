@@ -1,0 +1,11 @@
+absl-py
+numpy
+torch
+torchvision
+opencv-python
+git+https://github.com/liruilong940607/aniposelib
+git+https://github.com/liruilong940607/smplx
+ffmpeg-python
+imageio
+imageio-ffmpeg
+gdown

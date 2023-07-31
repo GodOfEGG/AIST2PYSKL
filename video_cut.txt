@@ -1,0 +1,72 @@
+      BM   REP    FM   REP
+BR0   12s    4    47s   16
+BR1   10s    4    42s   16
+BR2    9s    4    38s   16
+BR3    8s    4    34s   16
+BR4    8s    4    31s   16
+BR5    7s    4    29s   16
+
+HO0    8s    4    34s   16
+HO1    8s    4    33s   16
+HO2    8s    4    31s   16
+HO3    7s    4    30s   16
+HO4    7s    4    29s   16
+HO5    7s    4    28s   16
+
+JB0   12s    4    47s   16
+JB1   10s    4    42s   16
+JB2    9s    4    38s   16
+JB3    8s    4    34s   16
+JB4    7s    4    31s   16
+JB5    7s    4    29s   16
+
+JS0   12s    4    47s   16
+JS1   10s    4    42s   16
+JS2    9s    4    38s   16
+JS3    8s    4    34s   16
+JS4    8s    4    31s   16
+JS5    7s    4    29s   16
+
+KR0   12s    4    47s   16
+KR1   10s    4    42s   16
+KR2    9s    4    38s   16
+KR3    8s    4    34s   16
+KR4    8s    4    31s   16
+KR5    7s    4    29s   16
+
+LH0   12s    4    47s   16
+LH1   10s    4    42s   16
+LH2    9s    4    38s   16
+LH3    8s    4    34s   16
+LH4    8s    4    31s   16
+LH5    7s    4    29s   16
+
+LO0   12s    4    47s   16
+LO1   10s    4    42s   16
+LO2    9s    4    38s   16
+LO3    8s    4    34s   16
+LO4    8s    4    31s   16
+LO5    7s    4    29s   16
+
+MH0   12s    4    47s   16
+MH1   10s    4    42s   16
+MH2    9s    4    38s   16
+MH3    8s    4    34s   16
+MH4    8s    4    31s   16
+MH5    7s    4    29s   16
+
+PO0   12s    4    47s   16
+PO1   10s    4    42s   16
+PO2    9s    4    38s   16
+PO3    8s    4    34s   16
+PO4    8s    4    31s   16
+PO5    7s    4    29s   16
+
+WA0   12s    4    47s   16
+WA1   10s    4    42s   16
+WA2    9s    4    38s   16
+WA3    8s    4    34s   16
+WA4    8s    4    31s   16
+WA5    7s    4    29s   16
+
+
