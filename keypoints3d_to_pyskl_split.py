@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import numpy as np
 
-
+# filepath argument
 anno_dir = Path('annotations/keypoints3d')
 ignore_file = Path('annotations/ignore_list.txt')
 label_file = Path('annotations/label.txt')
@@ -11,6 +11,10 @@ output_file = Path('aist++3d_4s.pkl')
 split_file_train = Path('annotations/splits/pose_train.txt')
 split_file_val = Path('annotations/splits/pose_val.txt')
 split_file_test = Path('annotations/splits/pose_test.txt')
+
+# other argument
+BM_num_clip = 1
+
 
 ## Read label file
 label_list = None
@@ -38,9 +42,9 @@ for pkl_filepath in anno_dir.glob('*.pkl'):
     # set number of clip
     num_clip = None
     if 'sBM' in pkl_filepath.stem:
-        num_clip = 2
+        num_clip = BM_num_clip
     elif 'sFM' in pkl_filepath.stem:
-        num_clip = 8
+        num_clip = BM_num_clip*4
     assert num_clip is not None
 
     with open(pkl_filepath, 'rb') as pkl_f:
@@ -76,9 +80,9 @@ with open(split_file_train, 'r') as train_f:
     for id in org_train_list:
         num_clip = None
         if 'sBM' in id:
-            num_clip = 2
+            num_clip = BM_num_clip
         elif 'sFM' in id:
-            num_clip = 8
+            num_clip = BM_num_clip*4
         assert num_clip is not None
 
 
@@ -95,9 +99,11 @@ with open(split_file_val, 'r') as val_f:
     for id in org_val_list:
         num_clip = None
         if 'sBM' in id:
-            num_clip = 2
+            num_clip = BM_num_clip
         elif 'sFM' in id:
-            num_clip = 8
+            num_clip = BM_num_clip*4
+        assert num_clip is not None
+
         for i in range(num_clip):
             new_val_list.append(id + f'_{i+1:02d}')
 
@@ -110,9 +116,11 @@ with open(split_file_test, 'r') as test_f:
     for id in org_test_list:
         num_clip = None
         if 'sBM' in id:
-            num_clip = 2
+            num_clip = BM_num_clip
         elif 'sFM' in id:
-            num_clip = 8
+            num_clip = BM_num_clip*4
+        assert num_clip is not None
+
         for i in range(num_clip):
             new_test_list.append(id + f'_{i+1:02d}')
 
