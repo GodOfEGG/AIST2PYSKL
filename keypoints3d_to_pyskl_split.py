@@ -4,16 +4,16 @@ import os
 import numpy as np
 
 # filepath argument
-anno_dir = Path('annotations/keypoints3d')
-ignore_file = Path('annotations/ignore_list.txt')
-label_file = Path('annotations/label.txt')
-output_file = Path('aist++3d_4s.pkl')
-split_file_train = Path('annotations/splits/pose_train.txt')
-split_file_val = Path('annotations/splits/pose_val.txt')
-split_file_test = Path('annotations/splits/pose_test.txt')
+anno_dir = Path('../annotations/keypoints3d')
+ignore_file = Path('../annotations/ignore_list.txt')
+label_file = Path('../annotations/label.txt')
+output_file = Path('../aist++3d_2s.pkl')
+split_file_train = Path('../annotations/splits/pose_train.txt')
+split_file_val = Path('../annotations/splits/pose_val.txt')
+split_file_test = Path('../annotations/splits/pose_test.txt')
 
 # other argument
-BM_num_clip = 1
+BM_num_clip = 4
 
 
 ## Read label file
