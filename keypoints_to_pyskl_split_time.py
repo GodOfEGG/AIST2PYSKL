@@ -4,17 +4,17 @@ import os
 import numpy as np
 
 # Path Argument
-anno_dir = Path('../annotations/keypoints3d')
+anno_dir = Path('../annotations/motions')
 ignore_file = Path('../annotations/ignore_list.txt')
 label_file = Path('../annotations/label.txt')
-output_file = Path('../aist++3d_4s.pkl')
+output_file = Path('../aist++_smpl_480.pkl')
 split_file_train = Path('../annotations/splits/pose_train.txt')
 split_file_val = Path('../annotations/splits/pose_val.txt')
 split_file_test = Path('../annotations/splits/pose_test.txt')
 
 # Other Argument
-clip_len = 240      # frame per clip
-
+clip_len = 480      # frame per clip
+keypoint_type = 'smpl'
 
 
 ## Read label file
@@ -36,18 +36,26 @@ with open(ignore_file, 'r') as ignore_f:
 final_dict={}
 anno_list = []
 num_clip_dict={}
+num_empty = 0
 for pkl_filepath in anno_dir.glob('*.pkl'):
     if pkl_filepath.stem in ignore_file_list:
         continue
 
     with open(pkl_filepath, 'rb') as pkl_f:
-        data = pickle.loads(pkl_f.read())
-        
+        data = pickle.loads(pkl_f.read()) 
 
-        keypoints = data['keypoints3d']
+        keypoints = None
+        if keypoint_type == 'keypoints3d':
+            keypoints = data['keypoints3d']
+        elif keypoint_type == 'smpl':
+            keypoints = data['smpl_poses'].reshape(-1, 24, 3).astype(np.float64)
+        assert(keypoints is not None)
+
+
         new_keypoints = []
         for x in keypoints:
             if False in np.isfinite(x):
+                num_empty+=1
                 continue
             new_keypoints.append(x)
         keypoints = np.array(new_keypoints)
@@ -73,6 +81,7 @@ for pkl_filepath in anno_dir.glob('*.pkl'):
 
 final_dict['annotations'] = anno_list
 
+print('Num_empty:', num_empty)
 ## Write split
 split_dict = {}
 with open(split_file_train, 'r') as train_f:
